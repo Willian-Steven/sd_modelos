@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/05/2020 09:27:52 PM by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.campusucc.sd.modelos.Giro" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="giro">
+        <id name="idGiro" type="string">
+            <column length="3" name="id_giro"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="co.edu.campusucc.sd.modelos.Cliente" embed-xml="true" fetch="select" insert="true" name="cliente" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="50" name="id_cliente"/>
+        </many-to-one>
+        <many-to-one class="co.edu.campusucc.sd.modelos.Empleados" embed-xml="true" fetch="select" insert="true" name="empleados" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="3" name="id_empleado"/>
+        </many-to-one>
+        <many-to-one class="co.edu.campusucc.sd.modelos.Pais" embed-xml="true" fetch="select" insert="true" name="pais" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="3" name="id_pais_origen"/>
+        </many-to-one>
+        <many-to-one class="co.edu.campusucc.sd.modelos.Sede" embed-xml="true" fetch="select" insert="true" name="sede" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="3" name="id_sede"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="idAdministrador" optimistic-lock="true" type="string" unique="false">
+            <column length="3" name="id_administrador"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="dineroRecibidos" optimistic-lock="true" sort="unsorted" table="dinero_recibido">
+            <key on-delete="noaction">
+                <column length="3" name="id_giro"/>
+            </key>
+            <one-to-many class="co.edu.campusucc.sd.modelos.DineroRecibido" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="administradors" optimistic-lock="true" sort="unsorted" table="administrador">
+            <key on-delete="noaction">
+                <column length="3" name="id_giro"/>
+            </key>
+            <one-to-many class="co.edu.campusucc.sd.modelos.Administrador" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="tablaNegociacions" optimistic-lock="true" sort="unsorted" table="tabla_negociacion">
+            <key on-delete="noaction">
+                <column length="3" name="id_giro"/>
+            </key>
+            <one-to-many class="co.edu.campusucc.sd.modelos.TablaNegociacion" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="verificacionMontoPermitidos" optimistic-lock="true" sort="unsorted" table="verificacion_monto_permitido">
+            <key on-delete="noaction">
+                <column length="3" name="id_giro"/>
+            </key>
+            <one-to-many class="co.edu.campusucc.sd.modelos.VerificacionMontoPermitido" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

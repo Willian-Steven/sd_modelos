@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/05/2020 09:27:52 PM by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.campusucc.sd.modelos.TablaNegociacion" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="tabla_negociacion">
+        <id name="idComicion" type="string">
+            <column length="50" name="id_comicion"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="co.edu.campusucc.sd.modelos.Giro" embed-xml="true" fetch="select" insert="true" name="giro" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column length="3" name="id_giro"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="origen" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="origen"/>
+        </property>
+        <property generated="never" lazy="false" name="destino" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="destino"/>
+        </property>
+        <property generated="never" lazy="false" name="vigenciaGiro" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="vigencia_giro"/>
+        </property>
+        <property generated="never" lazy="false" name="flete" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="flete"/>
+        </property>
+        <property generated="never" lazy="false" name="comicion" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="comicion"/>
+        </property>
+        <property generated="never" lazy="false" name="idBanco" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="id_banco"/>
+        </property>
+    </class>
+</hibernate-mapping>

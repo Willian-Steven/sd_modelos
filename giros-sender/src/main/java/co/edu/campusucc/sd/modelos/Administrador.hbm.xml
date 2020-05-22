@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/05/2020 09:27:52 PM by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.campusucc.sd.modelos.Administrador" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="administrador">
+        <composite-id class="co.edu.campusucc.sd.modelos.AdministradorId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="idAdministrador" type="string">
+                <column length="3" name="id_administrador"/>
+            </key-property>
+            <key-property name="nombreAdministrador" type="string">
+                <column length="50" name="nombre_administrador"/>
+            </key-property>
+            <key-property name="idGiro" type="string">
+                <column length="3" name="id_giro"/>
+            </key-property>
+        </composite-id>
+        <many-to-one class="co.edu.campusucc.sd.modelos.Giro" embed-xml="true" fetch="select" insert="false" name="giro" not-found="exception" optimistic-lock="true" unique="false" update="false">
+            <column length="3" name="id_giro"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

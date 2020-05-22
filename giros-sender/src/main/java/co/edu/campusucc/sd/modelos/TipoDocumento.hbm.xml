@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 18/05/2020 09:27:52 PM by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="co.edu.campusucc.sd.modelos.TipoDocumento" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="tipo_documento">
+        <id name="idTipoDocumento" type="string">
+            <column length="2" name="id_tipo_documento"/>
+            <generator class="assigned"/>
+        </id>
+        <property generated="never" lazy="false" name="nombreDocumento" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="nombre_documento"/>
+        </property>
+    </class>
+</hibernate-mapping>
